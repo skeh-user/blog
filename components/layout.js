@@ -5,8 +5,11 @@ import utilStyles from '../styles/utils.module.css'
 import Link from 'next/link'
 
 
-const name = '.skeh'
-export const siteTitle ='Next.js sample blog'
+
+const name = 'INTPがKPOP分析するブログ'
+export const siteTitle ='KPOPオタクの学生がKPOPを分析する自己満ブログです'
+
+
 
 
 export default function Layout ({ children, home }) {

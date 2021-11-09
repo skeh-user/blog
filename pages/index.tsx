@@ -1,12 +1,14 @@
+import { GetStaticProps } from 'next'
 import Head from 'next/head'
 import Link from 'next/link'
 import utilStyles from '../styles/utils.module.css'
 import Layout,{ siteTitle } from '../components/layout'
-import { getSortedPostsData } from '../lib/posts'
+import { getSortedPostsData } from '../lib/data'
 import Date from '../components/date'
 
 
-export async function getStaticProps(){
+
+export const getStaticProps: GetStaticProps = async() => {
   const allPostsData = getSortedPostsData()
   return {
     props: {
@@ -15,9 +17,15 @@ export async function getStaticProps(){
   }
 }
 
+type Props = {
+  allPostsData: {
+    id: string
+    title: string
+    date: string
+  }[]
+}
 
-
-export default function Home({ allPostsData }) {
+export default function Home({ allPostsData}: Props) {
   return (
     <Layout home>
       <Head>
@@ -25,11 +33,8 @@ export default function Home({ allPostsData }) {
         <link rel="icon" href="https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/240/apple/285/cow-face_1f42e.png"/>
       </Head>
       <section className={utilStyles.headingMd}>
-        <p>.skeh meta </p>
-        <p>
-          (This is a sample website - you’ll be building a site like this on{' '}
-          <a href="https://nextjs.org/learn">our Next.js tutorial</a>.)
-        </p>
+        <p> </p>
+        <p>{ siteTitle }</p>
       </section>
       <section className={`${utilStyles.headingMd} ${utilStyles.padding1px}`}>
         <h2 className={utilStyles.headingLg}>Blog</h2>
