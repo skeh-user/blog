@@ -1,5 +1,5 @@
 ---
-title: 'blog posts'
+title: 'hello world'
 date: '2020-07-23'
 ---
 
